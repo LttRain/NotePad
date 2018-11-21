@@ -34,8 +34,15 @@
 	</head>
 	<body>
 		<mytitle>临渊慕鱼, 不如退而结网</mytitle>
-		<mycontent contenteditable>
-		</mycontent>
+		<mycontent contenteditable>    </mycontent>
+		<script>
+			window.onload = function () {
+				document.getElementsByTagName('mycontent')[0].innerHTML = localStorage.getItem("mytext");
+				document.getElementsByTagName('mycontent')[0].oninput = function () {
+					localStorage.setItem("mytext", document.getElementsByTagName('mycontent')[0].innerHTML);
+				};
+			};
+		</script>
 	</body>
 	
 	</html>
